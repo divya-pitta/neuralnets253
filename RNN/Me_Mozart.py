@@ -171,6 +171,7 @@ val_tunes = [tune + "<end>\r\n" for tune in val_tunes]
 
 # In[ ]:
 
+# Randomly choose 1000 patches of a fixed length [forexample:30] in each epoch, to train the LSTM models
 
 def train_random(epochs):
     ran = 1000
@@ -270,6 +271,9 @@ def train_random(epochs):
 
 # In[ ]:
 
+# Sliding over some tunes: we randomly choose a fixed number of tunes and 
+# slide a window with a fixed stride with a fixed sequence length, 
+# while conserving the the hidden state throughout the epoch
 
 def train_special(epochs):
     running_loss = 0.0
@@ -372,6 +376,7 @@ def train_special(epochs):
 
 # In[ ]:
 
+# we choose a patch of fixed size from every tune present in the training set in each epoch
 
 def train_every_tune(epochs):
     running_loss = 0.0
